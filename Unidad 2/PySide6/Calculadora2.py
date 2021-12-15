@@ -22,7 +22,6 @@ class MainWindow(QMainWindow):
         self.almacen = ""
         self.comprobador_parentesis = True
 
-        self.buttons = {}
         buttonsLayout = QGridLayout()
         buttons = {
             'AC': (0, 0),
@@ -46,19 +45,21 @@ class MainWindow(QMainWindow):
             '<-': (4, 2),
             '=': (4, 3),
                     }
-        for btn_text, pos in buttons.items():
-            self.buttons[btn_text] = QPushButton(btn_text)
-            self.buttons[btn_text].setFixedSize(40, 40)
-            buttonsLayout.addWidget(self.buttons[btn_text], pos[0], pos[1])
-            self.buttons[btn_text].clicked.connect(self.operacion)
+        for btn_text in buttons.keys():
+            button = QPushButton(btn_text)
+            button.setFixedSize(40, 40)
+            buttonsLayout.addWidget(
+                button, 
+                buttons[btn_text][0],
+                buttons[btn_text][1]
+            )
+            button.clicked.connect(self.operacion)
 
         self.LayoutGeneral.addLayout(buttonsLayout)
 
-        self.buttons['='].clicked.connect(self.result)
-
     def operacion(self):
         if (self.sender().text() == "="):
-            pass
+            self.setDisplayText(str(eval(self.almacen)))
         elif (self.sender().text() == "<-"):
             self.setDisplayText(self.almacen[:-1])
             self.almacen = self.almacen[:-1]
@@ -74,9 +75,6 @@ class MainWindow(QMainWindow):
         else:
             self.almacen += self.sender().text()
         self.setDisplayText(self.almacen)
-
-    def result(self):
-        self.setDisplayText(str(eval(self.almacen)))
 
     def setDisplayText(self, text):
         self.display.setText(text)
