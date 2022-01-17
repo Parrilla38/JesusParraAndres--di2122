@@ -297,6 +297,7 @@ class MainWindow(QMainWindow):
         else:
             pass
 
+
 app = QApplication(sys.argv)
 window = MainWindow()
 window.show()
