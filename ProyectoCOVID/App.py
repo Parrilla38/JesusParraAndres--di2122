@@ -648,17 +648,17 @@ class MainWindow(QMainWindow):
     
     def grafico_tasa(self):
         
-        self.bar1 = QBarSet("")
-        self.bar2 = QBarSet("")
-        self.bar3 = QBarSet("")
-        self.bar4 = QBarSet("")
-        self.bar5 = QBarSet("")
-        self.bar6 = QBarSet("")
-        self.bar7 = QBarSet("")
-        self.bar8 = QBarSet("")
-        self.bar9 = QBarSet("")
+        self.bar1 = QBarSet("0 - 3")
+        self.bar2 = QBarSet("3 - 5")
+        self.bar3 = QBarSet("5 - 10")
+        self.bar4 = QBarSet("10 - 13")
+        self.bar5 = QBarSet("13 - 17")
+        self.bar6 = QBarSet("17 - 20")
+        self.bar7 = QBarSet("20 - 24")
+        self.bar8 = QBarSet("24 - 27")
+        self.bar9 = QBarSet("27 - 31")
 
-        self.categorias = ["Tasa de Defunción"]
+        self.categorias = ["Tasa de Defunción por Días"]
 
         with open(
             carpeta + '/extras/covid/30dgrafico/03.csv' , mode = 'r', encoding ='UTF8') as csv_file:
@@ -770,7 +770,7 @@ class MainWindow(QMainWindow):
         
         self.chart = QChart()
         self.chart.addSeries(self.barras_grafico)
-        self.chart.setTitle("Gráfico TASA DEFUNCIÓN COVID")
+        self.chart.setTitle("Gráfico TASA DEFUNCIÓN COVID por Días")
 
         self.chart.createDefaultAxes()
         self.chart.removeAxis(self.chart.axisX())
