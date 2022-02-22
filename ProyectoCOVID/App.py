@@ -641,6 +641,7 @@ class MainWindow(QMainWindow):
 
         categorias_axis = QBarCategoryAxis()
         categorias_axis.append(self.categorias)
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         return self.chart
     
@@ -777,6 +778,7 @@ class MainWindow(QMainWindow):
 
         categorias_axis = QBarCategoryAxis()
         categorias_axis.append(self.categorias)
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         return self.chart
             
@@ -893,6 +895,7 @@ class MainWindow(QMainWindow):
         self.chart.addSeries(self.series)
         self.chart.createDefaultAxes()
         self.chart.setTitle("PCR+")
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         return self.chart
     
@@ -1008,6 +1011,7 @@ class MainWindow(QMainWindow):
         self.chart.addSeries(self.series)
         self.chart.createDefaultAxes()
         self.chart.setTitle("Incidencias")
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         return self.chart
     
@@ -1121,6 +1125,7 @@ class MainWindow(QMainWindow):
         self.chart.addSeries(self.series)
         self.chart.createDefaultAxes()
         self.chart.setTitle("Fallecidos")
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         return self.chart
     
@@ -1176,6 +1181,7 @@ class MainWindow(QMainWindow):
 
         self._chart_view = QChartView(self.chart)
         self._chart_view.setRenderHint(QPainter.Antialiasing)
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         return self.chart
     
